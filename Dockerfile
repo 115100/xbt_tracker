@@ -9,6 +9,7 @@ ADD asset/start.sh /bin/start.sh
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get -y install \
+      git \
       cmake \
       g++ \
       libboost-date-time-dev \
@@ -23,8 +24,7 @@ RUN apt-get update && \
       zlib1g-dev \
       wget && \
     cd /tmp && \
-    svn co http://xbt.googlecode.com/svn/trunk/xbt/misc xbt/misc && \
-    svn co http://xbt.googlecode.com/svn/trunk/xbt/Tracker xbt/Tracker && \
+    git clone https://github.com/OlafvdSpek/xbt.git && \
     cd xbt/Tracker && \
     ./make.sh && \
     mkdir -p /opt/xbt_tracker/ && \
